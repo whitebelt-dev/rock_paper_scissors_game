@@ -1,8 +1,4 @@
 // Build a function that returns computer's choice (getComputerChoice):
-// - Generate a random number from 1 to 3
-// - Relate that number with rock, paper or scissors
-// - Store the result that was generated
-// - Return that value
 function getComputerChoice() {
     // Declare variable to store computer's choice.
     let computerChoice = "";
@@ -20,19 +16,20 @@ function getComputerChoice() {
     } else {
         computerChoice = rock
     };
-    // Return the computer choice.
+    // Return the computer's choice.
     return computerChoice; 
 }
 
 
 // Build a function that returns human's choice (getHumanChoice):
-// - Ask the user for their choice 
-// - Normalize the answer (lowercase the answer)
-// - Store the answer in a variable
-// - Return that variable (that answer)
 function getHumanChoice() {
-
+    // Prompt the user to choose their answer.
+    let humanChoice = prompt("Rock, paper or scissors?");
+    // Lowercase user's answer and return that value.
+    humanChoice = humanChoice.toLowerCase();
+    return humanChoice;
 }
+
 
 
 // Declare computer and human score variables (humanScore, computerScore)
