@@ -4,7 +4,24 @@
 // - Store the result that was generated
 // - Return that value
 function getComputerChoice() {
-
+    // Declare variable to store computer's choice.
+    let computerChoice = "";
+    // Declare the options.
+    let paper = "paper";
+    let scissors = "scissors";
+    let rock = "rock";
+    // Generate a random number from 0 to 2.
+    let randomNumber = Math.floor(Math.random() * 3);
+    // Relate the random number with one of the options.
+    if (randomNumber === 0) {
+        computerChoice = paper;
+    } else if (randomNumber === 1){
+        computerChoice = scissors
+    } else {
+        computerChoice = rock
+    };
+    // Return the computer choice.
+    return computerChoice; 
 }
 
 
