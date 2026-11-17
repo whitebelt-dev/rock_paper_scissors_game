@@ -31,8 +31,6 @@ let humanScore = 0;
 let computerScore = 0;
 
 
-
-
 // This function takes computer and human choices, decide who wins and add
 // a point to the winner of the round. 
 function playRound(computerChoice, humanChoice) {
@@ -63,7 +61,7 @@ function playRound(computerChoice, humanChoice) {
             computerScore += 1;      
         // If both selected the same choice:
         } else {
-            console.log(`It's a tie! You both chose the same option. No point 
+            console.log(`You both chose the same option. No point 
                 for anyone!`)
         }
     }
@@ -78,13 +76,20 @@ function playGame() {
     while (counter < 5) {
         playRound()
         counter += 1
-    }
+    };
+    declareWinner(humanScore, computerScore);
 }
 playGame()
-
 // Build a function to declare a winner (declareWinner)
 // - Once all 5 rounds are played, call this function to know who win. 
 // - Compare computer and human scores and build conditional logic to declare a winner.
-function declareWinner() {
-
+function declareWinner(humanScore, computerScore) {
+    let scorePrompt = `---FINAL SCORE---\nYou:${humanScore}\nComputer:${computerScore}\n`
+    if(humanScore > computerScore){
+        console.log(scorePrompt +"YOU WIN!")
+    } else if (humanScore < computerScore) {
+        console.log(scorePrompt +"You loose :(")
+    } else {
+        console.log(scorePrompt +"It's a tie, no one wins!")
+    }
 }
