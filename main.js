@@ -1,4 +1,4 @@
-// Build a function that returns computer's choice (getComputerChoice):
+// This function makes the computer select a random choice.
 function getComputerChoice() {
     // Generate a random number from 0 to 2.
     let randomNumber = Math.floor(Math.random() * 3);
@@ -15,7 +15,7 @@ function getComputerChoice() {
 }
 
 
-// Build a function that returns human's choice (getHumanChoice):
+// This function ask the user for their choice.
 function getHumanChoice() {
     // Prompt the user to choose their answer.
     let humanChoice = prompt(`The computer already made a choice, what's yours?
@@ -26,58 +26,55 @@ function getHumanChoice() {
 }
 
 
-// Declare computer and human score variables (humanScore, computerScore)
+// Here are the variables to store the scores.
 let humanScore = 0;
 let computerScore = 0;
+console.log(humanScore,computerScore)
+
+function storeScore(winner) {
+    if (winner === "human"){
+        humanScore += 1
+    } else {
+        computerScore += 1
+    };
+}
 
 
-// Build a function that takes computer's and human's choice, and return the 
-// winner. Add the point to the winner's variable (playRound):
-// - This function needs to call computerChoice and humanChoice
-// - Build the conditional logic to declare a winner.
-// - If it's a tie, no score is stored (and repeat the round?. (while loop))
-// - Return winner
+
+// This function takes computer and human choices, decide who wins and add
+// a point to the winner of the round. 
 function playRound(computerChoice, humanChoice) {
-    // Call and get computer and human choice. 
+    // Get computer and human choice. 
     computerChoice = getComputerChoice();
     humanChoice = getHumanChoice();
     // Conditional logic to get the winner of the round.
     // If human choose rock:
     if (humanChoice === "rock" && computerChoice === "paper"){
-        console.log("You loose! Paper beats rock!")
-        computerScore += 1
+        console.log("You loose! Paper beats rock!");
+        storeScore("computer");
         } else if (humanChoice === "rock" && computerChoice === "scissors"){
-            console.log("You win! Rock beats scissors")
-            humanScore += 1
+            console.log("You win! Rock beats scissors");
+            storeScore("human");
         // If human choose paper:
         } else if (humanChoice === "paper" && computerChoice === "rock") {
-            console.log("You win! Paper beats rock!")
-            humanScore += 1
+            console.log("You win! Paper beats rock!");
+            storeScore("human");
         } else if (humanChoice === "paper" && computerChoice === "scissors") {
-            console.log("You loose! Scissors beats paper!")
-            computerChoice += 1      
+            console.log("You loose! Scissors beats paper!");
+            storeScore("computer");    
         // If human choose scissors:
         } else if (humanChoice === "scissors" && computerChoice === "paper") {
             console.log("You win! Scissors beats paper!")
-            humanChoice += 1
+            storeScore("human");
         } else if (humanChoice === "scissors" && computerChoice === "rock") {
             console.log("You loose! Rock beats scissors!")
-            computerChoice += 1       
+            storeScore("computer");      
         // If both selected the same choice:
         } else {
-            console.log(`It's a tie! You both chose the same option. Let's play
-                 the round again!`)
-            playRound()
+            console.log(`It's a tie! You both chose the same option. No point 
+                for anyone!`)
         }
     }
-
-
-// Maybe build a function to store the point for the winner so playRound is not 
-// overloaded (storeScore).
-// - Identify the winner and store the point in winner's variable.
-function storeScore() {
-
-}
 
 
 // Build a function to play the game 5 times.
@@ -85,9 +82,13 @@ function storeScore() {
 // - It calls storeScore as well.
 // - It has to reset the scores for future games.
 function playGame() {
-
+    let counter = 0
+    while (counter < 5) {
+        playRound()
+        counter += 1
+    }
 }
-
+playGame()
 
 // Build a function to declare a winner (declareWinner)
 // - Once all 5 rounds are played, call this function to know who win. 
