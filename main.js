@@ -31,8 +31,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 
-// This function takes computer and human choices, decide who wins and add
-// a point to the winner of the round. 
+// This function does the heavy lifting to compare choices.
 function playRound(computerChoice, humanChoice) {
     // Get computer and human choice. 
     computerChoice = getComputerChoice();
@@ -67,10 +66,7 @@ function playRound(computerChoice, humanChoice) {
     }
 
 
-// Build a function to play the game 5 times.
-// - This functions needs to call playRound 5 times.
-// - It calls storeScore as well.
-// - It has to reset the scores for future games.
+// This function make the game be played for 5 rounds
 function playGame() {
     let counter = 0
     while (counter < 5) {
@@ -80,9 +76,9 @@ function playGame() {
     declareWinner(humanScore, computerScore);
 }
 playGame()
-// Build a function to declare a winner (declareWinner)
-// - Once all 5 rounds are played, call this function to know who win. 
-// - Compare computer and human scores and build conditional logic to declare a winner.
+
+
+// This function keeps PlayGame light 
 function declareWinner(humanScore, computerScore) {
     let scorePrompt = `---FINAL SCORE---\nYou:${humanScore}\nComputer:${computerScore}\n`
     if(humanScore > computerScore){
