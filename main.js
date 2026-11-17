@@ -29,15 +29,7 @@ function getHumanChoice() {
 // Here are the variables to store the scores.
 let humanScore = 0;
 let computerScore = 0;
-console.log(humanScore,computerScore)
 
-function storeScore(winner) {
-    if (winner === "human"){
-        humanScore += 1
-    } else {
-        computerScore += 1
-    };
-}
 
 
 
@@ -51,24 +43,24 @@ function playRound(computerChoice, humanChoice) {
     // If human choose rock:
     if (humanChoice === "rock" && computerChoice === "paper"){
         console.log("You loose! Paper beats rock!");
-        storeScore("computer");
+        computerScore += 1;
         } else if (humanChoice === "rock" && computerChoice === "scissors"){
             console.log("You win! Rock beats scissors");
-            storeScore("human");
+            humanScore += 1;
         // If human choose paper:
         } else if (humanChoice === "paper" && computerChoice === "rock") {
             console.log("You win! Paper beats rock!");
-            storeScore("human");
+            humanScore += 1;
         } else if (humanChoice === "paper" && computerChoice === "scissors") {
             console.log("You loose! Scissors beats paper!");
-            storeScore("computer");    
+            computerScore += 1;    
         // If human choose scissors:
         } else if (humanChoice === "scissors" && computerChoice === "paper") {
             console.log("You win! Scissors beats paper!")
-            storeScore("human");
+            humanScore += 1;
         } else if (humanChoice === "scissors" && computerChoice === "rock") {
             console.log("You loose! Rock beats scissors!")
-            storeScore("computer");      
+            computerScore += 1;      
         // If both selected the same choice:
         } else {
             console.log(`It's a tie! You both chose the same option. No point 
